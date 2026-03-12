@@ -1,0 +1,277 @@
+\documentclass{article}
+
+% Formatting
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage[titletoc,title]{appendix}
+\usepackage{graphicx}
+\usepackage{breqn}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{hyperref} % Clickable links
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=blue,
+    urlcolor=blue,
+    citecolor = blue
+    }
+  \urlstyle{same}
+\usepackage{caption}
+\captionsetup[figure]{font=scriptsize}
+\captionsetup[table]{font=scriptsize}
+\usepackage{setspace}
+\doublespacing
+
+\usepackage{float}
+%\usepackage{fixltx2e} % for subscript
+
+
+\graphicspath{ {/Users/timothyelder/Documents/soc_of_soc/figures/pdf/} }
+
+% Title content
+\title{Status Hierarchies in Sociology Departments and Subfields}
+\author{Timothy Elder and Austin Kozlowski}
+%\date{2021}
+
+\begin{document}
+
+\maketitle
+
+% Introduction
+\section{Introduction}
+
+Sociologists have a refined suite of tools for examining inequality in society. What more, sociologists are highly attuned to the ways in which material inequality is mirrored in immaterial aspects of social life. We take several basic paradigms for analyzing the social world, social network analysis, linear modeling, archival methods, to turn the empirical eye of sociology on itself to better understand an immaterial hierarchy within our discipline, and one in which has real and important material and *epistemic* consequences. We have been motivated by several hunches, including but not solely confined to the hunch that the social backgrounds of sociologists influence where they study and what they research, that the milieu in which they were trained will lead them to study different things and that different research areas are not solely evaluated on the basis of their scientific worth.
+
+To make absolutely transparent our thinking on this topic our basic premises are the following: (1) there is a status ordering of departments in the discipline of sociology. (2) That the subfields that constitute the different research areas in the disciplines are not equally represented across departments. (3) Some subfields are disproportionately represented at high and low prestige departments, respectively. To evaluate these premises we extend and elaborate upon an ASR paper entitled the ``The Academic Caste System: Prestige Hierarchies in PhD Exchange Networks'' \cite{burris_academic_2004}. In it, Burris argued that contrary to the conventional view, where departmental prestige or status is the result of the perceived or actual scholarly productivity of the faculty within it, departmental status is the result of ``a department's position within networks of association and social exchange—that is, it is a form of social capital.'' In this context association and exchange is the movement of PhDs between PhD granting departments.
+
+Measuring status of PhD granting departments has been notoriously reliable at inflaming both prejudices and sensitivities of the notably fragile egos of academics. A National Research Council study that attempted to assess the quality of PhD granting departments across many disciplines by first surveying academics about the most important features of high quality departments and then measuring those features caused massive controversy once their rankings were published. In particular the NRC created two ``prestige measures'', which Burris used as a DV in his regressions showing the explanatory value of a departments centrality over the productivity of its faculty.
+
+Since the Burris piece was published there has been follow-up work claiming that the Burris effect is overblown or misinterpreted and that really the unequal placement of phd graduates is due to processes of accumulative advantage \cite{headworth_credential_2016}. The influence of the PhD Granting department's prestige is mediated by individual achievement and acts as a signal of quality; high quality undergrads are able to get into high quality PhD departments and this indicates future productivity. I would contend that such an argument is fairly naive as it simply shifts the ``pure prestige effect'' from the PhD Granting department to the BA granting institution.
+
+% Data and Some Exploration
+\section{Data and Some Exploration}
+
+To explore the exchange of PhDs between sociology departments we adopted a well-tested method and collected physical copies of the \emph{American Sociological Association's Guide to Graduate Deparments} covering years 1996, 2010, 2011, 2012, 2013, 2016 2019, 2020 and 2021. The \emph{Guide} contains information about mostly PhD granting departments in the US and a few international universities. To be listed in the \emph{Guide} a department pays a small fee and sends in their information. Most PhD granting departments are listed in each volume with a few notable exceptions, namely UT-Austin. When a department is included in the \emph{Guide}, it lists information about admission dates and processes, the current chair, the department's specialization and a list of current primary and secondary faculty. For each faculty member, their PhD granting department is listed, as well as the year in which they received it, their current research interests, and their position. This sort of volume is fairly unique among academic disciplines, and is a real boon for social scientists looking for employment information about their colleagues.
+
+Using OCR, we digitized physical copies of the \emph{Guides}, and produced CSVs which contained names, source departments, current department, graduation year, research interests, and position of all faculty members at all the departments listed in the \emph{Guide}. for the six years listed above. Overall, that is 21639 individual observations over the 6 volumes, with 2864 in the 2020 edition and 3165 in the 2010 edition. That is 206 individual departments overall, 167 in the 2020 edition. This volume of data is not entirely necessary, considering that most analyses similar to this one have confined their data collection to a pre-specified group of departments, typically those to be considered to be in the top 20 departments \footnote{This claim comes from a conversation that I had with Jim Murphy and needs to be independently confirmed.}.
+
+From this data we constructed weighted directed graph objects for each of the years that we have data and calculated typical network statistics for all the departments including Degree, Indegree, Outdegree, and several centrality measures. Most important of these centrality measures is the Eigenvector centrality measure, which is meant to capture the influence of a node within a network \cite{bonacich_power_1987}. Conceptuallty, this measure is meant to not only capture the degree of connectedness of the focal node, but also the connectedness of the nodes the focal node is connected to. A node with a few ties to highly influential neighbors, will have a comparatively higher eigenvector centrality score than a node with many ties to non-influential neighbors. This measure has been a staple of network analyses of social influence but has been criticized of late \cite{martin_thinking_2018}.\footnote{I was leafing through John's book and when I opened up the book to a random page and these were the very first words at the top of the page: ``'eigenvector' centrality is where we weigh each persons contribution to anyone else's status by the status of those who are tied to them \cite{bonacich_power_1987}. The problem is that, for most social networks, it almost never makes any difference - this measure usually correlates quite highly with degree and when it doesn't, it usually means that the assumptions that justify the measure aren't met.'' The correlation coefficient between the eigenvector measure and degree for 2021 is approximately .70.}
+
+We generated an eigenvector centrality score for each PhD granting department in our dataset and use it as a proxy for that department's status. That might be a curious thing to do you think, so as a test against our ``prestige score'' (eigenvector centrality), we compared them with the rankings published by the US News and World Report for Sociology departments in 2020.\footnote{USNWR rankings are only available for 58\% of the departments included in the 2020 \emph{Guide}} Where data is available for both measures they are correlated at .71. The two measures largely conform to one another, particularly for the most prestigious departments. Table \ref{tab:top_ten_by_eigen_usnwr} shows a comparison of the Top 10 departments in Sociology by the two measures for 2020. At minimum, our proxy measure of status conforms fairly well to the controversial rankings published by the US News and World Report, and it has face validity, largely conforming to our extant prejudices about who is the ``best'' (conveniently the University of Chicago is near the top for both measures).
+
+% latex table generated in R 4.0.3 by xtable 1.8-4 package
+% Wed Aug 25 12:05:45 2021
+\begin{table}[ht]
+\caption{Top 10 Sociology Departments by Eigenvector Centrality Score and US News and World Report Ranking for 2020. The only difference between the two is the substitution of Columbia University for UNC Chapel Hill.}
+\smallskip
+\centering
+\begin{tabular}{ll}
+  \hline
+Eigenvector Ranking & USNWR Ranking \\
+  \hline
+Harvard University & Harvard University \\
+  University of California-Berkeley & Princeton University \\
+  University of Chicago & University of California-Berkeley \\
+  University of Wisconsin-Madison & University of Michigan \\
+  University of Michigan & Stanford University \\
+  University of California-Los Angeles & University of North Carolina-Chapel Hill \\
+  Princeton University & University of Wisconsin-Madison \\
+  Stanford University & University of California-Los Angeles \\
+  Columbia University & University of Chicago \\
+  Northwestern University & Northwestern University \\
+   \hline
+   \label{tab:top_ten_by_eigen_usnwr}
+\end{tabular}
+\end{table}
+
+Before moving onto a discussion of Sections in the ASA and our strategy for advancing our analyses I want to linger on stratification between sociology departments, particularly looking at placement of PhD graduates in all PhD granting departments. Looking at 2020, we can rank all the departments in terms of the number of their graduates that are currently employed across all the PhD granting departments in sociology (in network terms, this is equivalent to a department's outdegree). Doing this you get a nearly identical picture as you do from the eigenvector and USNWR ratings (See Table \ref{tab:top_dept_by_placement} in Appendix for a table with the top ten departments by placement). Confining our attention to the top 100 departments by placement, the Top 5 departments account for fully 25\% of all faculty currently employed in all PhD granting departments, with Berkeley alone accounting for 5.5\% of all faculty.
+
+A contingency table can be used to display the mobility of graduates from different departments. Adhering to the method outlined in Burris, we divided the top 100 departments between the top 5, remaining 15 in the top 20, and bottom 80 departments by placement. See Table \ref{tab:mobility-table-2020} for a contingency table showing the frequency of movements between the different divisions of departments. The diagonal indicates horizontal mobility, while above the diagonal is downward mobility, and above the diagonal upward mobility. As was documented in 2004, the differences are striking, and stable. I calculated ratios for the observed frequencies relative to expected frequencies under independence.
+
+Two of the observed frequencies depart from the expected frequencies by more than 50 percent and both of these are for placements in the Top 5 departments. Top 5 departments are disproportionately likely to place their graduates in top 5 departments while the Bottom 80 departments are disproportionately unlikely to place their graduates in the Top 5 departments. Upward mobility is relatively rare with downward mobility or stability being preponderant. This can be further detected by taking the eigenvector centrality scores for all faculty members in 2020, and subtracting the faculty members source department eigenvector centrality from the current eigenvector centrality, producing a difference score. As can be seen in Figure \ref{fig:den_diff_eig}, the difference scores are centered around 0 indicating stability between the faculty members source and current department, and the left tail is notably larger than the right tail.
+
+\begin{table}[ht]
+\caption{Mobility table indicating the relative movements of graduates from departments. Above the diagonal is upward mobility, while below the diagonal is downward mobility.}
+\label{tab:mobility-table-2020}
+\begin{tabular}{ccccc}
+\multicolumn{1}{l}{}                        & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} \\ \hline
+\multicolumn{1}{l}{}                        & \multicolumn{4}{c}{Department of Employment}                                              \\ \cline{2-5}
+\multicolumn{1}{l}{PhD Granting Department} & Top 5 Departments    & Next 15 Departments  & Other 80 Departments & Total                \\ \hline
+\multicolumn{1}{l}{Top 5 Departments}    &      &       &       &       \\
+Raw N                                    & 49\textsuperscript{a}   & 115   & 278   & 442   \\
+Percent                                  & 2.86 & 6.73  & 0.16  & 25.87 \\
+Ratio                                    & 1.63 & 1.19  & 0.88  & -     \\
+\multicolumn{1}{l}{Next 15 Departments}  &      &       &       &       \\
+Raw N                                    & 48   & 181   & 404   & 633   \\
+Percent                                  & 2.81 & 10.59 & 23.65 & 37.06 \\
+Ratio                                    & 1.11 & 1.31  & 0.89  & -     \\
+\multicolumn{1}{l}{Other 80 Departments} &      &       &       &       \\
+Raw N                                    & 19\textsuperscript{a}   & 76\textsuperscript{b}    & 538   & 633   \\
+Percent                                  & 1.11 & 4.44  & 31.49 & 37.06 \\
+Ratio                                    & 0.44 & 0.55  & 1.18  & -     \\
+\multicolumn{1}{l}{All Departments}      &      &       &       &       \\
+Raw N                                    & 116  & 372   & 1220  & 1708  \\
+Percent                                  & 6.79 & 21.77 & 71.42 & 100   \\
+Ratio                                    & -    & -     & -     & -     \\ \hline
+\end{tabular}
+\emph{Note:} Raw N = raw number of PhDs; Percent = \% of the entire population. Ratio = ratio of the actual number of PhDs to the expected number assuming randomness (i.e., row marginal times column marginal divided by total N). Departments are ranked according to the number of graduates employed in all 100 PhD-granting departments.
+
+\textsuperscript{a} Observed frequency departs from expected frequency by 50 percent.
+
+\textsuperscript{b} Observed frequency departs from expected frequency by  20 percent.
+\end{table}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[height = 8cm, width = 8cm]{density_diff_eigen}
+\caption{Difference in centrality of faculty's current department and source department.}
+\label{fig:den_diff_eig}
+\end{figure}
+
+
+Second, we examined the full list of unique research interests faculty elected to show in the \emph{Guide}. Typically, these research interests conform to Section names in the ASA. We hand-coded research interests that didn't conform to any of the ASA sections into a section that seemed to most closely relate to that research interest. For example, the unique research interest of ``Islamic Studies'' was recoded into ``Religion'', ``Prosocial Behavior'' into ``Social Psychology'', ``Gene/Environment Interplay'' into ``Biosociology'', and so on. Once all the research interests were standardized to fit the contemporaneous sections.
+
+The next step in the process involves several conceptual moves, and Figure \ref{fig:schema_status} shows a schematic of these moves. First, as stated above we operationalize the status of sociology departments as their eigenvector centrality measure within the network of exchanges of faculty members. Then we apply the centrality measure of the department to all the faculty members currently employed at that department.  Therefore, we are treating faculty members as having equivalent status as the department they work at.
+
+Using the centrality score of the departments as equivalent to the faculty members status, we then extract the faculty members self-defined research interests and code them into the ASA's various sections, treating a faculty's research interest as indicative of membership in an ASA section. We then aggregate the prestige score of the faculty members with research interests equivalent to a section, and produce a mean prestige score for each section. We also created an Age variable; the ``age'' of a faculty member is simply the year in which they appear in the \emph{Guide} minus the year in which they received their PhD. Aggregating the ages as we did the prestige scores creates a mean age variable for each section. We then added these two new variables to section membership data available \href{https://www.asanet.org/communities-sections/sections/section-membership-data}{from the ASA}, including information about the racial and gender composition of each section.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{/Users/timothyelder/Documents/soc_of_soc/figures/png/eigen2section_status_schema.png}
+\caption{Schematic of abstractions from node level network measure to section status.}
+\label{fig:schema_status}
+\end{figure}
+
+Figure \ref{fig:section_pop_mean_eig} gives an overview of several of the features of the combined dataset. The x-axis indicates the number of members in each section as indicated by the ASA membership data. The y-axis is our calculated mean prestige score for each section. The size of each point is scaled to match the number of observations from our dataset that go into calculating the mean prestige scores and we color the nodes after converting the mean prestige scores to a factor variable with the following cut points: 	$\leq$ 40 is Low Status, 	$>$ 40 	$\leq$ 60 is Mid Status, and $>$ 60 is High Status\footnote{Ethnomethodology and Altruism and Morality have a disproportionately high status and this puzzled me for a while. In creating this write up I went back and looked at which departments our observations are from and discovered their very high mean prestige scores is likely due to the few number of observations in our dataset used to calculate those scores. Ethnomethodology, N = 6, Altruism and Morality, N = 12. On the other end of the prestige spectrum is the section Human Rights with N = 9 and the lowest mean prestige score.}. Though some of the smallest sections have the highest mean prestige scores, Figure \ref{fig:section_pop_mean_eig} indicates that size doesn't go very far in helping us understand the structure of sections in terms of status. The correlation between the number of observations in our dataset used to calculate the mean and the mean prestige score for each section is .007, while the correlation of the total section membership derived from the ASA data and the mean prestige score for each section is .013\footnote{See the Appendix for Figure \ref{fig:section_member_by_obs_scatter} which shows the relationship between the number of observations for a section and the total membership as indicated by the ASA and the status of the departments.} In my mind these weak correlations indicate that some unobserved feature of the sections is driving the differences in mean status.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[height = 7cm, width= 7cm]{ink_edit_section_pop_mean_eig.pdf}
+\caption{In this scatter plot the x-axis is the size of the section according to the ASA and the y-axis is the sections mean centrality score as measured by the faculty in our network dataset. The size of points is scaled to the number of faculty in our dataset assigned to the section and whose eigenvector centrality score contributes to the sections mean centrality score. The sections ``Ethnometholdogy'' and ``Morality/Altruism'' are very small sections with disproportionately high status. }
+\label{fig:section_pop_mean_eig}
+\end{figure}
+
+Instead of size or the number of observations used to calculate a mean prestige score, the demographic composition of the sections seems to exert some notable if modest influence over the status of the section. Figure \ref{fig:section_scatter_pruned} shows scatterplots for the sections by various gender and racial categories the ASA made available in their datasets. For most of the scatterplots, the relationship between the mean prestige score of the section and the demographic composition is modest, with the plotted error bars indicating the line could be near horizontal with the plotted points. The exception is for the two plots for the gender categories of the sections. Sections with a majority female membership appear penalized in terms of their status or mean prestige score ($\rho$ = -0.47). A similar relationship can be seen with age in Figure \ref{fig:section_member_by_obs_scatter} but with the direction of the correlation being reversed, with comparatively older sections having higher prestige scores ($\rho$ = 0.45).
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{section_demos_scatter_pruned.pdf}
+\caption{These scatter plots show the mean prestige score of the sections members by the racial and gender composition of the sections. The scatterplots for ``Percent Black'', ``Percent Hispanic/Latinx'', and ``Percent Asian/Asian American'' exclude several outliers. See the Appendix for the originals.}
+\label{fig:section_scatter_pruned}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{status_by_age_membership_obds_figure.pdf}
+\caption{}
+\label{fig:section_scatter_demos}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{mds_gender}
+\caption{Multidimensional scaling was used to plot the overlap matrix of section membership in the ASA. Section nodes that are closer together have more shared members.}
+\end{figure}
+
+% Future Directions
+\section{Next Steps: Scholarly Productivity}
+
+We are very excited about these analyses but want to be able to provide a more comprehensive analysis of the status hierarchy by examining academic productivity including the publication and reception of articles. Besides placement, we would argue that publication history is the most consequential mark of a scholars status and the chief means by which they make a contribution to the body of scientific knowledge they are engaged with. Fortunately, the field of bibliometrics has established several accepted measures of productivity and other scholars have made great effort in creating comprehensive datasets of scholarly publication. We have gained access (courtesy of the James Evans and his Knowledge Lab) to Microsoft Academic Graph. This dataset is a ``heterogenous graph containing scientific publication records, citation relationships between those publications, as well as authors, institutions, journals, conferences, and fields of study'' (\href{https://www.microsoft.com/en-us/research/project/microsoft-academic-graph/}{more info here}).
+
+Using Microsoft Academic Graph we can create a variety of measures to capture the academic productivity of faculty members in the network dataset including: number of papers published by a faculty member up to and including the year in which the observation takes place, the number of total citations a faculty member has up to and including the year in which the observation was made, and what I have called a ``weighted productivity score'':
+
+\begin{equation}
+P = \frac{ \sum_{i=1}^{n} (C_i \times I_j) }{n}
+\end{equation}
+
+\smallskip
+
+For any faculty member, their productivity score (\emph{P}), equals the sum of the citations for that article (\emph{C\textsubscript{i}}) multiplied by the impact factor of the journal it was published in (\emph{I\textsubscript{j}}), divided by the number of articles the faculty member has published (\emph{n}) up to and including the year in which the observation was made. If one is familiar with how impact factors are calculated, one might take issue with our weighting citation counts by journal impact factors. We do this as we are not solely interested in the reception of articles in terms of the citations, but also the placement of articles into prestigious journals. The weighted productivity score can indicate two things: placement of more articles into relatively more prestigious journals, or an indication of viewers to an article. We imagine far more people read an article than cite it, and that impact factor is a measure that might capture the amount of ``traffic'' a journal receives. Summing the productivity scores of all the faculty in a department divided by the number of faculty in that department produces departmental productivity scores and the same can be done with sections of the ASA.
+
+Then we propose to create several linear models to test a few hypotheses, which answer questions at different levels of analysis:
+
+\smallskip
+
+\emph{H\textsubscript{1}}: The prestige (eigenvector centrality score) of faculty's PhD granting department will be a stronger predictor than their scholarly productivity when predicting and departments current prestige.
+
+\emph{H\textsubscript{2}}: For individual scholars, when predicting the prestige of the department in which they are currently employed, the status of the subfields in which a person they are embedded in will be a stronger predictor than their scholarly productivity, number of citations, number of publications, or weighted productivity score.
+
+\emph{H\textsubscript{1}} is meant to test whether the status ordering of departments is associated with legitimate differences in scholarly output, or wether the status ordering of departments is a product of historical advantages and reputation. Our primary interest is in \emph{H\textsubscript{2}} and our thoughts behind it are thus: we believe that the status ordering of departments also applies to Subfields as measured by ASA research sections and as observed in the scatterplots above. One's location in the status ordering of subfields will afford advantages and disadvantages to scholars in terms of where they are able to be employed. Scholars embedded in high status subfields will be able to place themselves in high status departments with comparatively fewer publications and fewer citations compared to their peers embedded in low status subfields. In other words, scholars who study topics deemed low status will be penalized for their interests, having to publish more and be cited more to gain similar status in terms of department of employment.\footnote{I was hoping to add a more thorough discussion of our initial findings from some new data we got access to but unfortunately I was unable to complete these analyses in time.}
+
+Model 1 would be the following:
+
+
+\section{Conclusion}
+
+Naturally, there is the possibility of trespassing on some sensitivities if one is not careful with their claims. From my own perspective, I think it is important to turn our methods on our selves and evaluate how consistent we are being. Sociologists are deeply concerned about inequality and the one place they are most capable of alleviating it is the admissions and hiring committees. I am nearly certain these are the places that are most resistant to ever changing. This study could be vastly improved with a single case study, where a prestigious PhD granting department pulled the curtain back on its admission and hiring processes.
+
+A lack of equity is to be expected in systems which prize effort and achievement to the end of distinguishing individuals on the basis of the quality and quantity of their work. With that said extreme inequality or near complete immobility for certain individuals in that system leads one to suspect that there are systematic barriers blocking individuals from \emph{recognition} of their deserved accomplishments.
+
+
+% Bibliography
+\section{Bibliography}
+\bibliographystyle{apalike}
+\bibliography{bibliography}
+
+% Appendix
+\section{Appendix: Supplemental Figures}
+\begin{appendix}
+
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{ink_edit_section_pop_mean_eig_outliers_included.pdf}
+\caption{Section scatterplots for mean prestige score of members by racial composition including labeled outliers. The outliers in the scatterplots for Asians/Asian Americans and Latinx members are most striking with sections with greater than 60\% composition.}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{/Users/timothyelder/Documents/soc_of_soc/figures/burris_table_3.png}
+\caption{Original mobility table from Burris 2005 for comparison with current data.}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{scatter_asa_members_by_observations}
+\caption{Relationship of number of observations in our dataset and the total number of section members according to the ASA. Color indicates the status of the section.}
+\label{}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm]{section_pop_mean_eig_error_bars.pdf}
+\caption{ This scatter plot adds error bars to Figure \ref{fig:section_pop_mean_eig} indicating the mean and standard deviation in the mean status score of each section. Clearly there is a great deal of variance in the means across the sections, with many overlapping. Does this undermine our claim about the differences in the status scores?}
+\label{fig:section_member_by_obs_scatter}
+\end{figure}
+
+% latex table generated in R 4.0.3 by xtable 1.8-4 package
+% Wed Aug 25 19:46:33 2021
+\begin{table}[ht]
+\centering
+\caption{Top deparments by placements in 2020}
+\begin{tabular}{lrrr}
+  \hline
+Departments & Placements & \% & Rank \\
+  \hline
+University of California-Berkeley & 146 & 5.46 &   1 \\
+  University of Wisconsin-Madison & 123 & 4.60 &   2 \\
+  University of Chicago & 111 & 4.15 &   3 \\
+  University of Michigan &  94 & 3.52 &   4 \\
+  University of Texas-Austin &  88 & 3.29 &   5 \\
+  Harvard University &  80 & 2.99 &   6 \\
+  University of North Carolina-Chapel Hill &  74 & 2.77 &   7 \\
+  University of California-Los Angeles &  71 & 2.66 &   8 \\
+  Ohio State University &  67 & 2.51 &   9 \\
+  Pennsylvania State University &  63 & 2.36 &  10 \\
+   \hline
+   \label{tab:top_dept_by_placement}
+\end{tabular}
+\end{table}
+
+
+\end{appendix}
+
+\bigskip
+
+\end{document}

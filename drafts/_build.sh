@@ -1,0 +1,1 @@
+Rscript -e "bookdown::render_book('draft.Rmd', 'bookdown::pdf_document2')"

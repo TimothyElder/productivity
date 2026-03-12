@@ -1,0 +1,93 @@
+---
+title: "Productivity and Publication: A New Measure of Scholarly Status"
+shorttitle: "Scholarly Productivity"
+date: "March 2026"               # omit field entirely to suppress date
+subject: "cs.LG, stat.ML"        # arXiv subject classification for PDF metadata
+by-author:
+  - name: "Timothy B. Elder"
+    orcid: "0000-0003-4164-1130"  # omit field to suppress ORCID icon
+    department: "The Dartmouth Institute"
+    institution: "Geisel School of Medicine"
+    address: "Lebanon, NH 03766"
+    email: "timothy.b.elder@dartmouth.edu"
+    footnote: "Code for reproducing these analyses is available on GitHub at \\href{https://github.com/TimothyElder}{github.com/TimothyElder}"  # rendered as \thanks{}
+keywords:
+  - clinical decision-making
+  - large language models
+  - medical ethics
+abstract: |
+  
+bibliography: references.bib
+csl: [/Users/timothyelder/.pandoc/csl/asa.csl]
+output: 
+  bookdown::pdf_document2:
+    template: arxiv-pandoc.latex
+---
+
+```{r Setup, include = FALSE, results="hide", warning = FALSE}
+## This chunk is for setting nice options for the output. Notice how
+## we create both png and pdf files by default, so that we can easily process
+## to both HTML and LaTeX/PDF files later.
+require(knitr)
+
+# # FOR DEBUGGING
+# options(tinytex.verbose = TRUE) 
+
+opts_chunk$set(dev = "png",
+               out.width = "\\textwidth",
+               fig.width = 6.5,
+               fig.height = 4,
+               dpi = 300,
+               fig.show = 'hold',
+               fig.env = "figure",
+               fig.lp = "fig:",
+               cache = TRUE,
+               par = TRUE,
+               echo = FALSE,
+               results = "hide",
+               message = FALSE,
+               warning = FALSE)
+
+knit_hooks$set(par = function(before, options, envir) {
+  if (before && options$fig.show != 'none') par(mar = c(4, 4, .1, .1),
+      cex.lab = .95, cex.axis = .9, mgp = c(2, .7, 0), tcl = -.3)
+}, crop = hook_pdfcrop)
+
+library(ggh4x)
+library(stringr)
+library(readr)
+library(ggplot2)
+library(tidyr)
+library(dplyr)
+library(magrittr)
+library(ggtext)
+library(arrow)
+library(kableExtra)
+library(showtext)
+font_add(family = "Fira Sans",
+         regular = "/Users/timothyelder/Library/Fonts/FiraSans-Regular.otf",
+         bold = "/Users/timothyelder/Library/Fonts/FiraSans-Bold.otf",
+         italic = "/Users/timothyelder/Library/Fonts/FiraSans-Italic.otf")
+
+showtext_auto()
+showtext_opts(dpi = 300)
+
+theme_set(
+  theme_minimal(base_family = "Fira Sans", base_size = 14) +
+    theme(
+      plot.title      = element_text(face = "bold"),
+      plot.subtitle   = element_text(color = "gray40"),
+      plot.caption    = element_markdown(color = "gray50"),
+      legend.position = "bottom"
+    )
+)
+
+set.seed(1234)
+
+pal <- c("#b6174b", "#5398be", "#ffc914", "#23395b", "#519872")
+
+```
+
+
+# References {-}
+<div id="refs"></div>

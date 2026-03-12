@@ -1,0 +1,26 @@
+\documentclass[12pt]{article}
+\usepackage[margin=0.5in, paperwidth=8.5in, paperheight=11in]{geometry}
+\usepackage{fontspec}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage[table]{xcolor}
+\usepackage{tikz}
+\usepackage{pgffor}
+
+\setmainfont{Fira Sans}[Scale=1.0]
+
+\begin{document}
+    We are very excited about these analyses but want to be able to provide a more comprehensive analysis of the status hierarchy by examining academic productivity including the publication and reception of articles. Besides placement, we would argue that publication history is the most consequential mark of a scholars status and the chief means by which they make a contribution to the body of scientific knowledge they are engaged with. Fortunately, the field of bibliometrics has established several accepted measures of productivity and other scholars have made great effort in creating comprehensive datasets of scholarly publication. We have gained access (courtesy of the James Evans and his Knowledge Lab) to Microsoft Academic Graph. This dataset is a ``heterogenous graph containing scientific publication records, citation relationships between those publications, as well as authors, institutions, journals, conferences, and fields of study''.
+    
+    Using Microsoft Academic Graph we can create a variety of measures to capture the academic productivity of faculty members in the network dataset including: number of papers published by a faculty member up to and including the year in which the observation takes place, the number of total citations a faculty member has up to and including the year in which the observation was made, and what I have called a ``weighted productivity score'':
+    
+    \begin{equation}
+    P = \frac{ \sum_{i=1}^{n} (C_i \times I_j) }{n}
+    \end{equation}
+    
+    \smallskip
+    
+    For any faculty member, their productivity score (\emph{P}), equals the sum of the citations for that article (\emph{C\textsubscript{i}}) multiplied by the impact factor of the journal it was published in (\emph{I\textsubscript{j}}), divided by the number of articles the faculty member has published (\emph{n}) up to and including the year in which the observation was made. If one is familiar with how impact factors are calculated, one might take issue with our weighting citation counts by journal impact factors. We do this as we are not solely interested in the reception of articles in terms of the citations, but also the placement of articles into prestigious journals. The weighted productivity score can indicate two things: placement of more articles into relatively more prestigious journals, or an indication of viewers to an article. We imagine far more people read an article than cite it, and that impact factor is a measure that might capture the amount of ``traffic'' a journal receives. Summing the productivity scores of all the faculty in a department divided by the number of faculty in that department produces departmental productivity scores and the same can be done with sections of the ASA.
+\end{document}
