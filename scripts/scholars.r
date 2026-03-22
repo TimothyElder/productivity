@@ -29,22 +29,26 @@ source('/dartfs-hpc/rc/home/n/f007dcn/productivity-scores/scripts/functions.r')
 
 options(openalexR.apikey = "SlDFTCWvxFsq5SVUGSNFm7")
 
+
+# Top journals in the Social Sciences — Names
 journal_names <- c("Psychological Bulletin",
                    "American Journal of Sociology",
                    "American Economic Review",
                    "American Ethnologist",
                    "American Historical Review")
 
+# Top journals in the Social Sciences — OA IDs
 journal_ids <- c("https://openalex.org/S75627607",
                  "https://openalex.org/S122471516",
                  "https://openalex.org/S23254222",
                  "https://openalex.org/S114801684",
                  "https://openalex.org/S197437610")
 
-results <- vector("list", length(journal_ids))
+journal_sample <- vector("list", length(journal_ids))
 
+# Return 40 random articles from each journal
 for(i in 1:length(journal_ids)) {
-  results[[i]] <- oa_fetch(entity = "works",
+  journal_sample[[i]] <- oa_fetch(entity = "works",
                      locations.source.id = journal_ids[i],
                      type = "article",
                      options = list(sample = 40, seed = 123),
@@ -54,9 +58,10 @@ for(i in 1:length(journal_ids)) {
                      verbose = TRUE)
 }
 
-results <- dplyr::bind_rows(results)
+journal_sample <- dplyr::bind_rows(journal_sample)
 
-author_ids <- results %>%
+# Return the first author for each article
+author_ids <- journal_sample %>%
   rename(article_id = id) %>%
   select(article_id, authorships) %>%
   unnest(authorships) %>%
@@ -64,30 +69,41 @@ author_ids <- results %>%
   drop_na(id) %>%
   pull(id)
 
+length(author_ids) == nrow(journal_sample)
+
+journal_sample %>%
+  rename(article_id = id) %>%
+  select(article_id, authorships) %>%
+  unnest(authorships) %>% 
+  group_by(article_id, author_position) %>%
+  count() %>%
+  View()
+
+# Return author level information for each author
 authors <- oa_fetch(
   entity = "authors",
   identifier = author_ids,
   verbose = TRUE)
 
-saveRDS(authors, "data/sampled_authors.rds")
-
-authors %>%
-  unnest(works_api_url)
+saveRDS(authors, "/dartfs-hpc/rc/home/n/f007dcn/productivity-scores/data/sampled_authors.rds")
 
 author_works_results <- vector("list", nrow(authors))
 
+# Return for each author their article level information
 for(i in seq_len(nrow(authors))) {
   author_works_results[[i]] <- oa_fetch(entity = "works",
                            type = "article",
                            author.id = authors$id[i],
                            output = "dataframe",
                            verbose = TRUE)
-}
+              }
 
 author_works_results <- dplyr::bind_rows(author_works_results)
 
-saveRDS(author_works_results, "data/author_works_results.rds")
+saveRDS(author_works_results, "/dartfs-hpc/rc/home/n/f007dcn/productivity-scores/data/author_works_results.rds")
 
+# Return journal IDs and year in which an article appears
+# in that journal, only include years after 2015
 source_years_df <- author_works_results %>%
     filter(publication_year >= 2015) %>%
     select(source_id, publication_year) %>%
@@ -145,9 +161,9 @@ for (i in seq_len(source_years_df)) {
 
 library(ggplot2)
 
-articles <- readRDS("data/author_works_results.rds")
+articles <- readRDS("/dartfs-hpc/rc/home/n/f007dcn/productivity-scores/data/author_works_results.rds")
 
-impacts <- read.csv("data/sampled_impact_factors.csv")
+impacts <- read_csv("/dartfs-hpc/rc/home/n/f007dcn/productivity-scores/data/sampled_impact_factors.csv")
 
 impacts %>%
   mutate(value = case_when(is.na(impact) ~ 0,
@@ -165,8 +181,6 @@ impacts %>%
        y = "Percentage with Impact Factor") +
   theme_minimal()
 
-impacts <- distinct(impacts)
-
 unnested_articles <- articles %>%
   rename(article_id = id) %>%
   select(-display_name) %>%
@@ -174,22 +188,24 @@ unnested_articles <- articles %>%
   left_join(impacts, by = c("source_id", "publication_year"))
   
 scores <- list()
+n_articles <-  list()
+
 for(i in 1:nrow(authors)) {
 
-  
   author_id <- authors$id[i]
   
   author_articles <- unnested_articles %>%
     # filter(id == author_id & publication_year >= 2015 & !is.na(impact))
-    filter(id == author_id, publication_year >= 2015, !is.na(impact))
+    filter(id == author_id, publication_year >= 2015, is.na(impact) == FALSE)
 
   print(nrow(author_articles))
 
    scores[[i]] <- calc_productivity(author_articles$cited_by_count, author_articles$impact)
-  
+   n_articles[[i]] <- nrow(author_articles)
 }
 
 authors$score <- as.numeric(scores)
+authors$n_articles <- as.numeric(n_articles)
 
 authors_test <- authors %>%
   filter(!is.na(score))
@@ -197,7 +213,9 @@ authors_test <- authors %>%
 cor.test(authors_test$score, authors_test$cited_by_count)
 
 hist(authors_test$score)
+
 range(authors_test$score)
+
 hist(authors_test$cited_by_count)
 
 plot(authors_test$score, authors_test$cited_by_count)
@@ -209,7 +227,23 @@ plot(authors_test$score, authors_test$h_index)
 cor.test(authors$h_index, authors$cited_by_count)
 
 plot(authors_test$h_index, authors_test$cited_by_count)
+
 hist(authors_test$h_index)
 
-
 hist(impacts$impact)
+
+
+
+
+# Why are some journals returning NAN for their impact factors?
+impacts %>%
+  filter(is.na(impact))
+
+df_y_1_2 <- oa_fetch(
+  entity = "works",
+  locations.source.id = "https://openalex.org/S4210193404",
+  from_publication_date = paste0(2018 - 2, "-01-01"),
+  to_publication_date = paste0(2018 - 1, "-12-31"),
+  type = "article",  # restrict to citable items
+  verbose = TRUE
+  )

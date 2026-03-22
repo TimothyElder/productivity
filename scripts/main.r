@@ -3,7 +3,6 @@ library(tidyr)
 library(dplyr)
 library(magrittr)
 library(readr)
-library(ggplot2)
 
 source('/dartfs-hpc/rc/home/n/f007dcn/productivity-scores/scripts/functions.r')
 

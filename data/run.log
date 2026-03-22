@@ -1,0 +1,874 @@
+nohup: ignoring input
+openalexR v2.0.0 introduces breaking changes.
+See NEWS.md for details.
+
+To suppress this message, add `openalexR.message = suppressed` to your .Renviron file.
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+
+Attaching package: ‘magrittr’
+
+The following object is masked from ‘package:tidyr’:
+
+    extract
+
+Requesting url: https://api.openalex.org/authors?filter=openalex%3Ahttps%3A%2F%2Fopenalex.org%2FA5043342879%7Chttps%3A%2F%2Fopenalex.org%2FA5101509948%7Chttps%3A%2F%2Fopenalex.org%2FA5063104254%7Chttps%3A%2F%2Fopenalex.org%2FA5112248657
+Getting 1 page of results with a total of 4 records...
+Requesting url: https://api.openalex.org/works?filter=author.id%3Ahttps%3A%2F%2Fopenalex.org%2FA5043342879%7Chttps%3A%2F%2Fopenalex.org%2FA5101509948%7Chttps%3A%2F%2Fopenalex.org%2FA5063104254%7Chttps%3A%2F%2Fopenalex.org%2FA5112248657
+Getting 3 pages of results with a total of 599 records...
+185 rows already completed, resuming...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS159512450%2Cfrom_publication_date%3A2002-01-01%2Cto_publication_date%3A2003-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 3 records...
+Failed on row 12 source: https://openalex.org/S159512450 — In argument: `counts_by_year_year == year`.
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS161221444%2Cfrom_publication_date%3A2000-01-01%2Cto_publication_date%3A2001-12-31%2Ctype%3Aarticle
+Failed on row 133 source: https://openalex.org/S161221444 — no applicable method for 'unnest' applied to an object of class "NULL"
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4210224848%2Cfrom_publication_date%3A2016-01-01%2Cto_publication_date%3A2017-12-31%2Ctype%3Aarticle
+Failed on row 135 source: https://openalex.org/S4210224848 — no applicable method for 'unnest' applied to an object of class "NULL"
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4210198833%2Cfrom_publication_date%3A2014-01-01%2Cto_publication_date%3A2015-12-31%2Ctype%3Aarticle
+Failed on row 164 source: https://openalex.org/S4210198833 — no applicable method for 'unnest' applied to an object of class "NULL"
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4210221231%2Cfrom_publication_date%3A2019-01-01%2Cto_publication_date%3A2020-12-31%2Ctype%3Aarticle
+Failed on row 190 source: https://openalex.org/S4210221231 — no applicable method for 'unnest' applied to an object of class "NULL"
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS202381698%2Cfrom_publication_date%3A2012-01-01%2Cto_publication_date%3A2013-12-31%2Ctype%3Aarticle
+Getting 281 pages of results with a total of 56081 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS60621485%2Cfrom_publication_date%3A2016-01-01%2Cto_publication_date%3A2017-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 35 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS9536269%2Cfrom_publication_date%3A2019-01-01%2Cto_publication_date%3A2020-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 91 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS46746144%2Cfrom_publication_date%3A2010-01-01%2Cto_publication_date%3A2011-12-31%2Ctype%3Aarticle
+Getting 2 pages of results with a total of 216 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS61028752%2Cfrom_publication_date%3A2011-01-01%2Cto_publication_date%3A2012-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 122 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS191413112%2Cfrom_publication_date%3A2015-01-01%2Cto_publication_date%3A2016-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 11 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS122471516%2Cfrom_publication_date%3A1969-01-01%2Cto_publication_date%3A1970-12-31%2Ctype%3Aarticle
+Getting 2 pages of results with a total of 317 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS59311786%2Cfrom_publication_date%3A1997-01-01%2Cto_publication_date%3A1998-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 51 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS157620343%2Cfrom_publication_date%3A1972-01-01%2Cto_publication_date%3A1973-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 173 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS129275725%2Cfrom_publication_date%3A1999-01-01%2Cto_publication_date%3A2000-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 143 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS28964699%2Cfrom_publication_date%3A2001-01-01%2Cto_publication_date%3A2002-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 159 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS9536269%2Cfrom_publication_date%3A1993-01-01%2Cto_publication_date%3A1994-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 39 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS104241220%2Cfrom_publication_date%3A1974-01-01%2Cto_publication_date%3A1975-12-31%2Ctype%3Aarticle
+Failed on row 203 source: https://openalex.org/S104241220 — no applicable method for 'unnest' applied to an object of class "NULL"
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS143967217%2Cfrom_publication_date%3A2008-01-01%2Cto_publication_date%3A2009-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 55 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS118419795%2Cfrom_publication_date%3A2003-01-01%2Cto_publication_date%3A2004-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 65 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS9536269%2Cfrom_publication_date%3A2004-01-01%2Cto_publication_date%3A2005-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 49 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS73400788%2Cfrom_publication_date%3A1994-01-01%2Cto_publication_date%3A1995-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 132 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS2736409588%2Cfrom_publication_date%3A2013-01-01%2Cto_publication_date%3A2014-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 24 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS99707617%2Cfrom_publication_date%3A2003-01-01%2Cto_publication_date%3A2004-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 64 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4210171723%2Cfrom_publication_date%3A2014-01-01%2Cto_publication_date%3A2015-12-31%2Ctype%3Aarticle
+Getting 2 pages of results with a total of 282 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS20605092%2Cfrom_publication_date%3A2009-01-01%2Cto_publication_date%3A2010-12-31%2Ctype%3Aarticle
+Getting 4 pages of results with a total of 723 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4210170888%2Cfrom_publication_date%3A2002-01-01%2Cto_publication_date%3A2003-12-31%2Ctype%3Aarticle
+Failed on row 212 source: https://openalex.org/S4210170888 — no applicable method for 'unnest' applied to an object of class "NULL"
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4789869%2Cfrom_publication_date%3A2015-01-01%2Cto_publication_date%3A2016-12-31%2Ctype%3Aarticle
+Getting 5 pages of results with a total of 929 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS191413112%2Cfrom_publication_date%3A2018-01-01%2Cto_publication_date%3A2019-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 15 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS61446109%2Cfrom_publication_date%3A1966-01-01%2Cto_publication_date%3A1967-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 53 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS81521204%2Cfrom_publication_date%3A1991-01-01%2Cto_publication_date%3A1992-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 22 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4210199992%2Cfrom_publication_date%3A1965-01-01%2Cto_publication_date%3A1966-12-31%2Ctype%3Aarticle
+Getting 4 pages of results with a total of 613 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS89717723%2Cfrom_publication_date%3A2004-01-01%2Cto_publication_date%3A2005-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 48 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS107889856%2Cfrom_publication_date%3A2021-01-01%2Cto_publication_date%3A2022-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 97 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS60621485%2Cfrom_publication_date%3A1993-01-01%2Cto_publication_date%3A1994-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 45 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306463230%2Cfrom_publication_date%3A1974-01-01%2Cto_publication_date%3A1975-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 90 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS193359815%2Cfrom_publication_date%3A2020-01-01%2Cto_publication_date%3A2021-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 198 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS99517592%2Cfrom_publication_date%3A2021-01-01%2Cto_publication_date%3A2022-12-31%2Ctype%3Aarticle
+Getting 3 pages of results with a total of 581 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS26186134%2Cfrom_publication_date%3A2023-01-01%2Cto_publication_date%3A2024-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 100 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS44706263%2Cfrom_publication_date%3A1995-01-01%2Cto_publication_date%3A1996-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 91 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS60621485%2Cfrom_publication_date%3A1996-01-01%2Cto_publication_date%3A1997-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 34 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS2764493452%2Cfrom_publication_date%3A2011-01-01%2Cto_publication_date%3A2012-12-31%2Ctype%3Aarticle
+Failed on row 227 source: https://openalex.org/S2764493452 — no applicable method for 'unnest' applied to an object of class "NULL"
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS81521204%2Cfrom_publication_date%3A2000-01-01%2Cto_publication_date%3A2001-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 26 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS195900089%2Cfrom_publication_date%3A2000-01-01%2Cto_publication_date%3A2001-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 76 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS158932249%2Cfrom_publication_date%3A2004-01-01%2Cto_publication_date%3A2005-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 43 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS202381698%2Cfrom_publication_date%3A2013-01-01%2Cto_publication_date%3A2014-12-31%2Ctype%3Aarticle
+Getting 317 pages of results with a total of 63236 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306462995%2Cfrom_publication_date%3A2018-01-01%2Cto_publication_date%3A2019-12-31%2Ctype%3Aarticle
+Getting 3 pages of results with a total of 411 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS130611943%2Cfrom_publication_date%3A1973-01-01%2Cto_publication_date%3A1974-12-31%2Ctype%3Aarticle
+Getting 4 pages of results with a total of 789 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306463045%2Cfrom_publication_date%3A2020-01-01%2Cto_publication_date%3A2021-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 6 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS143967217%2Cfrom_publication_date%3A2021-01-01%2Cto_publication_date%3A2022-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 54 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS57599369%2Cfrom_publication_date%3A2022-01-01%2Cto_publication_date%3A2023-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 48 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS60621485%2Cfrom_publication_date%3A2023-01-01%2Cto_publication_date%3A2024-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 34 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS81521204%2Cfrom_publication_date%3A1982-01-01%2Cto_publication_date%3A1983-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 23 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS80146597%2Cfrom_publication_date%3A1982-01-01%2Cto_publication_date%3A1983-12-31%2Ctype%3Aarticle
+Getting 6 pages of results with a total of 1019 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS69429964%2Cfrom_publication_date%3A1976-01-01%2Cto_publication_date%3A1977-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 98 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS959787170%2Cfrom_publication_date%3A1982-01-01%2Cto_publication_date%3A1983-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 89 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS163587207%2Cfrom_publication_date%3A2000-01-01%2Cto_publication_date%3A2001-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 31 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS104241220%2Cfrom_publication_date%3A1985-01-01%2Cto_publication_date%3A1986-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 177 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS19523265%2Cfrom_publication_date%3A1986-01-01%2Cto_publication_date%3A1987-12-31%2Ctype%3Aarticle
+Getting 2 pages of results with a total of 234 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS61274580%2Cfrom_publication_date%3A1999-01-01%2Cto_publication_date%3A2000-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 63 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS130611943%2Cfrom_publication_date%3A1962-01-01%2Cto_publication_date%3A1963-12-31%2Ctype%3Aarticle
+Getting 2 pages of results with a total of 353 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4210202784%2Cfrom_publication_date%3A1978-01-01%2Cto_publication_date%3A1979-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 118 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS205050996%2Cfrom_publication_date%3A1966-01-01%2Cto_publication_date%3A1967-12-31%2Ctype%3Aarticle
+Getting 13 pages of results with a total of 2439 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS131591925%2Cfrom_publication_date%3A2002-01-01%2Cto_publication_date%3A2003-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 51 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS118554956%2Cfrom_publication_date%3A2001-01-01%2Cto_publication_date%3A2002-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 63 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4789869%2Cfrom_publication_date%3A1982-01-01%2Cto_publication_date%3A1983-12-31%2Ctype%3Aarticle
+Getting 7 pages of results with a total of 1263 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4789869%2Cfrom_publication_date%3A2009-01-01%2Cto_publication_date%3A2010-12-31%2Ctype%3Aarticle
+Getting 5 pages of results with a total of 960 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS26186134%2Cfrom_publication_date%3A1975-01-01%2Cto_publication_date%3A1976-12-31%2Ctype%3Aarticle
+Failed on row 253 source: https://openalex.org/S26186134 — no applicable method for 'unnest' applied to an object of class "NULL"
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS143668711%2Cfrom_publication_date%3A1970-01-01%2Cto_publication_date%3A1971-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 187 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4393912450%2Cfrom_publication_date%3A1965-01-01%2Cto_publication_date%3A1966-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 159 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306463708%2Cfrom_publication_date%3A2012-01-01%2Cto_publication_date%3A2013-12-31%2Ctype%3Aarticle
+Getting 2 pages of results with a total of 214 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4789869%2Cfrom_publication_date%3A2016-01-01%2Cto_publication_date%3A2017-12-31%2Ctype%3Aarticle
+Getting 4 pages of results with a total of 784 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4210182430%2Cfrom_publication_date%3A2018-01-01%2Cto_publication_date%3A2019-12-31%2Ctype%3Aarticle
+Failed on row 258 source: https://openalex.org/S4210182430 — no applicable method for 'unnest' applied to an object of class "NULL"
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306464262%2Cfrom_publication_date%3A2008-01-01%2Cto_publication_date%3A2009-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 1 records...
+Failed on row 259 source: https://openalex.org/S4306464262 — In argument: `counts_by_year_year == year`.
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4210202285%2Cfrom_publication_date%3A1993-01-01%2Cto_publication_date%3A1994-12-31%2Ctype%3Aarticle
+Getting 22 pages of results with a total of 4331 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS16390937%2Cfrom_publication_date%3A1973-01-01%2Cto_publication_date%3A1974-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 64 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4210235805%2Cfrom_publication_date%3A1939-01-01%2Cto_publication_date%3A1940-12-31%2Ctype%3Aarticle
+Failed on row 262 source: https://openalex.org/S4210235805 — no applicable method for 'unnest' applied to an object of class "NULL"
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS102399824%2Cfrom_publication_date%3A2011-01-01%2Cto_publication_date%3A2012-12-31%2Ctype%3Aarticle
+Getting 3 pages of results with a total of 403 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4789869%2Cfrom_publication_date%3A2014-01-01%2Cto_publication_date%3A2015-12-31%2Ctype%3Aarticle
+Getting 5 pages of results with a total of 933 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS193359815%2Cfrom_publication_date%3A2016-01-01%2Cto_publication_date%3A2017-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 166 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS3880285%2Cfrom_publication_date%3A1994-01-01%2Cto_publication_date%3A1995-12-31%2Ctype%3Aarticle
+Getting 37 pages of results with a total of 7286 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4789869%2Cfrom_publication_date%3A1987-01-01%2Cto_publication_date%3A1988-12-31%2Ctype%3Aarticle
+Getting 8 pages of results with a total of 1475 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS2737630693%2Cfrom_publication_date%3A1967-01-01%2Cto_publication_date%3A1968-12-31%2Ctype%3Aarticle
+Failed on row 268 source: https://openalex.org/S2737630693 — no applicable method for 'unnest' applied to an object of class "NULL"
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS2764491778%2Cfrom_publication_date%3A2016-01-01%2Cto_publication_date%3A2017-12-31%2Ctype%3Aarticle
+Getting 2 pages of results with a total of 363 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS109232058%2Cfrom_publication_date%3A2017-01-01%2Cto_publication_date%3A2018-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 196 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306463868%2Cfrom_publication_date%3A2006-01-01%2Cto_publication_date%3A2007-12-31%2Ctype%3Aarticle
+Failed on row 271 source: https://openalex.org/S4306463868 — no applicable method for 'unnest' applied to an object of class "NULL"
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306463708%2Cfrom_publication_date%3A2017-01-01%2Cto_publication_date%3A2018-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 92 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS26186134%2Cfrom_publication_date%3A2020-01-01%2Cto_publication_date%3A2021-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 151 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS134094273%2Cfrom_publication_date%3A2007-01-01%2Cto_publication_date%3A2008-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 116 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS959848396%2Cfrom_publication_date%3A1998-01-01%2Cto_publication_date%3A1999-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 63 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306400786%2Cfrom_publication_date%3A2012-01-01%2Cto_publication_date%3A2013-12-31%2Ctype%3Aarticle
+Getting 384 pages of results with a total of 76621 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS102399824%2Cfrom_publication_date%3A2013-01-01%2Cto_publication_date%3A2014-12-31%2Ctype%3Aarticle
+Getting 2 pages of results with a total of 319 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4789869%2Cfrom_publication_date%3A2013-01-01%2Cto_publication_date%3A2014-12-31%2Ctype%3Aarticle
+Getting 4 pages of results with a total of 783 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS30045969%2Cfrom_publication_date%3A2005-01-01%2Cto_publication_date%3A2006-12-31%2Ctype%3Aarticle
+Getting 2 pages of results with a total of 356 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4393912450%2Cfrom_publication_date%3A1966-01-01%2Cto_publication_date%3A1967-12-31%2Ctype%3Aarticle
+Getting 2 pages of results with a total of 211 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306400786%2Cfrom_publication_date%3A2014-01-01%2Cto_publication_date%3A2015-12-31%2Ctype%3Aarticle
+Getting 444 pages of results with a total of 88767 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS2764945993%2Cfrom_publication_date%3A2014-01-01%2Cto_publication_date%3A2015-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 86 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306463708%2Cfrom_publication_date%3A2016-01-01%2Cto_publication_date%3A2017-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 120 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS9536269%2Cfrom_publication_date%3A2016-01-01%2Cto_publication_date%3A2017-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 75 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4210198833%2Cfrom_publication_date%3A2017-01-01%2Cto_publication_date%3A2018-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 146 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306402562%2Cfrom_publication_date%3A2017-01-01%2Cto_publication_date%3A2018-12-31%2Ctype%3Aarticle
+Getting 12 pages of results with a total of 2278 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS122471516%2Cfrom_publication_date%3A2019-01-01%2Cto_publication_date%3A2020-12-31%2Ctype%3Aarticle
+Getting 3 pages of results with a total of 450 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS143967217%2Cfrom_publication_date%3A2019-01-01%2Cto_publication_date%3A2020-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 63 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306463659%2Cfrom_publication_date%3A2018-01-01%2Cto_publication_date%3A2019-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 7 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS9536269%2Cfrom_publication_date%3A2020-01-01%2Cto_publication_date%3A2021-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 87 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS190552063%2Cfrom_publication_date%3A2021-01-01%2Cto_publication_date%3A2022-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 80 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS104241220%2Cfrom_publication_date%3A1977-01-01%2Cto_publication_date%3A1978-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 66 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4789869%2Cfrom_publication_date%3A2017-01-01%2Cto_publication_date%3A2018-12-31%2Ctype%3Aarticle
+Getting 4 pages of results with a total of 721 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4363604084%2Cfrom_publication_date%3A2005-01-01%2Cto_publication_date%3A2006-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 1 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS130611943%2Cfrom_publication_date%3A1965-01-01%2Cto_publication_date%3A1966-12-31%2Ctype%3Aarticle
+Getting 4 pages of results with a total of 725 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4363604142%2Cfrom_publication_date%3A2018-01-01%2Cto_publication_date%3A2019-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 2 records...
+Failed on row 296 source: https://openalex.org/S4363604142 — In argument: `counts_by_year_year == year`.
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306524878%2Cfrom_publication_date%3A1990-01-01%2Cto_publication_date%3A1991-12-31%2Ctype%3Aarticle
+Getting 2 pages of results with a total of 275 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4363604084%2Cfrom_publication_date%3A1994-01-01%2Cto_publication_date%3A1995-12-31%2Ctype%3Aarticle
+Failed on row 298 source: https://openalex.org/S4363604084 — no applicable method for 'unnest' applied to an object of class "NULL"
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306400393%2Cfrom_publication_date%3A1970-01-01%2Cto_publication_date%3A1971-12-31%2Ctype%3Aarticle
+Getting 14 pages of results with a total of 2647 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS105746325%2Cfrom_publication_date%3A1960-01-01%2Cto_publication_date%3A1961-12-31%2Ctype%3Aarticle
+Getting 2 pages of results with a total of 363 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS134644764%2Cfrom_publication_date%3A1961-01-01%2Cto_publication_date%3A1962-12-31%2Ctype%3Aarticle
+Getting 2 pages of results with a total of 315 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS105746325%2Cfrom_publication_date%3A1961-01-01%2Cto_publication_date%3A1962-12-31%2Ctype%3Aarticle
+Getting 2 pages of results with a total of 351 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306401157%2Cfrom_publication_date%3A2011-01-01%2Cto_publication_date%3A2012-12-31%2Ctype%3Aarticle
+Getting 28 pages of results with a total of 5563 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4789869%2Cfrom_publication_date%3A2010-01-01%2Cto_publication_date%3A2011-12-31%2Ctype%3Aarticle
+Getting 6 pages of results with a total of 1091 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS40844199%2Cfrom_publication_date%3A2001-01-01%2Cto_publication_date%3A2002-12-31%2Ctype%3Aarticle
+Getting 2 pages of results with a total of 267 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4363604084%2Cfrom_publication_date%3A1993-01-01%2Cto_publication_date%3A1994-12-31%2Ctype%3Aarticle
+Failed on row 306 source: https://openalex.org/S4363604084 — no applicable method for 'unnest' applied to an object of class "NULL"
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS190552063%2Cfrom_publication_date%3A2018-01-01%2Cto_publication_date%3A2019-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 62 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306400393%2Cfrom_publication_date%3A1969-01-01%2Cto_publication_date%3A1970-12-31%2Ctype%3Aarticle
+Getting 13 pages of results with a total of 2516 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4377196422%2Cfrom_publication_date%3A1980-01-01%2Cto_publication_date%3A1981-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 4 records...
+Failed on row 309 source: https://openalex.org/S4377196422 — In argument: `counts_by_year_year == year`.
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS3880285%2Cfrom_publication_date%3A1987-01-01%2Cto_publication_date%3A1988-12-31%2Ctype%3Aarticle
+Getting 35 pages of results with a total of 6817 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4789869%2Cfrom_publication_date%3A1988-01-01%2Cto_publication_date%3A1989-12-31%2Ctype%3Aarticle
+Getting 8 pages of results with a total of 1415 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS187169112%2Cfrom_publication_date%3A1944-01-01%2Cto_publication_date%3A1945-12-31%2Ctype%3Aarticle
+Getting 2 pages of results with a total of 221 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4210216238%2Cfrom_publication_date%3A1946-01-01%2Cto_publication_date%3A1947-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 109 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4363604084%2Cfrom_publication_date%3A1964-01-01%2Cto_publication_date%3A1965-12-31%2Ctype%3Aarticle
+Failed on row 314 source: https://openalex.org/S4363604084 — no applicable method for 'unnest' applied to an object of class "NULL"
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS112646816%2Cfrom_publication_date%3A1999-01-01%2Cto_publication_date%3A2000-12-31%2Ctype%3Aarticle
+Getting 307 pages of results with a total of 61217 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306402562%2Cfrom_publication_date%3A2005-01-01%2Cto_publication_date%3A2006-12-31%2Ctype%3Aarticle
+Getting 4 pages of results with a total of 601 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306402562%2Cfrom_publication_date%3A2009-01-01%2Cto_publication_date%3A2010-12-31%2Ctype%3Aarticle
+Getting 6 pages of results with a total of 1191 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306400393%2Cfrom_publication_date%3A1965-01-01%2Cto_publication_date%3A1966-12-31%2Ctype%3Aarticle
+Getting 9 pages of results with a total of 1685 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4377196880%2Cfrom_publication_date%3A1976-01-01%2Cto_publication_date%3A1977-12-31%2Ctype%3Aarticle
+Failed on row 319 source: https://openalex.org/S4377196880 — no applicable method for 'unnest' applied to an object of class "NULL"
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS107976061%2Cfrom_publication_date%3A2006-01-01%2Cto_publication_date%3A2007-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 176 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306402562%2Cfrom_publication_date%3A2013-01-01%2Cto_publication_date%3A2014-12-31%2Ctype%3Aarticle
+Getting 11 pages of results with a total of 2042 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS59248909%2Cfrom_publication_date%3A2002-01-01%2Cto_publication_date%3A2003-12-31%2Ctype%3Aarticle
+Getting 10 pages of results with a total of 1958 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS96897161%2Cfrom_publication_date%3A2007-01-01%2Cto_publication_date%3A2008-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 77 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS48492747%2Cfrom_publication_date%3A2001-01-01%2Cto_publication_date%3A2002-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 75 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4789869%2Cfrom_publication_date%3A2007-01-01%2Cto_publication_date%3A2008-12-31%2Ctype%3Aarticle
+Getting 4 pages of results with a total of 788 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4210228976%2Cfrom_publication_date%3A1975-01-01%2Cto_publication_date%3A1976-12-31%2Ctype%3Aarticle
+Getting 3 pages of results with a total of 597 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306521176%2Cfrom_publication_date%3A2010-01-01%2Cto_publication_date%3A2011-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 116 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS193359815%2Cfrom_publication_date%3A2009-01-01%2Cto_publication_date%3A2010-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 140 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS74056291%2Cfrom_publication_date%3A2013-01-01%2Cto_publication_date%3A2014-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 68 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS187169112%2Cfrom_publication_date%3A1947-01-01%2Cto_publication_date%3A1948-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 173 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS176974017%2Cfrom_publication_date%3A1945-01-01%2Cto_publication_date%3A1946-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 100 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS187169112%2Cfrom_publication_date%3A1939-01-01%2Cto_publication_date%3A1940-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 106 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS7407051518%2Cfrom_publication_date%3A2008-01-01%2Cto_publication_date%3A2009-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 8 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306401293%2Cfrom_publication_date%3A2014-01-01%2Cto_publication_date%3A2015-12-31%2Ctype%3Aarticle
+Getting 725 pages of results with a total of 144808 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS933883312%2Cfrom_publication_date%3A2013-01-01%2Cto_publication_date%3A2014-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 54 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS176007004%2Cfrom_publication_date%3A1972-01-01%2Cto_publication_date%3A1973-12-31%2Ctype%3Aarticle
+Getting 5 pages of results with a total of 900 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS122471516%2Cfrom_publication_date%3A1970-01-01%2Cto_publication_date%3A1971-12-31%2Ctype%3Aarticle
+Getting 2 pages of results with a total of 378 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS122471516%2Cfrom_publication_date%3A1973-01-01%2Cto_publication_date%3A1974-12-31%2Ctype%3Aarticle
+Getting 3 pages of results with a total of 494 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306463079%2Cfrom_publication_date%3A2013-01-01%2Cto_publication_date%3A2014-12-31%2Ctype%3Aarticle
+Failed on row 339 source: https://openalex.org/S4306463079 — no applicable method for 'unnest' applied to an object of class "NULL"
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS122471516%2Cfrom_publication_date%3A2014-01-01%2Cto_publication_date%3A2015-12-31%2Ctype%3Aarticle
+Getting 2 pages of results with a total of 379 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS190989491%2Cfrom_publication_date%3A2009-01-01%2Cto_publication_date%3A2010-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 156 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS67069294%2Cfrom_publication_date%3A2004-01-01%2Cto_publication_date%3A2005-12-31%2Ctype%3Aarticle
+Getting 3 pages of results with a total of 530 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS110701829%2Cfrom_publication_date%3A2008-01-01%2Cto_publication_date%3A2009-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 21 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS110701829%2Cfrom_publication_date%3A2014-01-01%2Cto_publication_date%3A2015-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 19 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4210209665%2Cfrom_publication_date%3A2015-01-01%2Cto_publication_date%3A2016-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 48 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS2739210528%2Cfrom_publication_date%3A2007-01-01%2Cto_publication_date%3A2008-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 51 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS2737630693%2Cfrom_publication_date%3A2015-01-01%2Cto_publication_date%3A2016-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 34 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS30525748%2Cfrom_publication_date%3A2002-01-01%2Cto_publication_date%3A2003-12-31%2Ctype%3Aarticle
+Getting 23 pages of results with a total of 4433 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4210216238%2Cfrom_publication_date%3A1945-01-01%2Cto_publication_date%3A1946-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 82 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS130611943%2Cfrom_publication_date%3A1984-01-01%2Cto_publication_date%3A1985-12-31%2Ctype%3Aarticle
+Getting 4 pages of results with a total of 654 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306402562%2Cfrom_publication_date%3A2007-01-01%2Cto_publication_date%3A2008-12-31%2Ctype%3Aarticle
+Getting 4 pages of results with a total of 781 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS72851247%2Cfrom_publication_date%3A1940-01-01%2Cto_publication_date%3A1941-12-31%2Ctype%3Aarticle
+Getting 4 pages of results with a total of 632 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS112646816%2Cfrom_publication_date%3A2016-01-01%2Cto_publication_date%3A2017-12-31%2Ctype%3Aarticle
+Getting 5208 pages of results with a total of 1041481 records...
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+HTTP status 429 Too Many Requests
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS89548376%2Cfrom_publication_date%3A2017-01-01%2Cto_publication_date%3A2018-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 42 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4377196400%2Cfrom_publication_date%3A1980-01-01%2Cto_publication_date%3A1981-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 129 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS2739210528%2Cfrom_publication_date%3A2017-01-01%2Cto_publication_date%3A2018-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 18 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS187169112%2Cfrom_publication_date%3A1941-01-01%2Cto_publication_date%3A1942-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 154 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS43643205%2Cfrom_publication_date%3A1965-01-01%2Cto_publication_date%3A1966-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 108 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306464233%2Cfrom_publication_date%3A2018-01-01%2Cto_publication_date%3A2019-12-31%2Ctype%3Aarticle
+Failed on row 359 source: https://openalex.org/S4306464233 — no applicable method for 'unnest' applied to an object of class "NULL"
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS187169112%2Cfrom_publication_date%3A1946-01-01%2Cto_publication_date%3A1947-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 193 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306533896%2Cfrom_publication_date%3A2015-01-01%2Cto_publication_date%3A2016-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 24 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS69220080%2Cfrom_publication_date%3A2019-01-01%2Cto_publication_date%3A2020-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 112 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306462995%2Cfrom_publication_date%3A2019-01-01%2Cto_publication_date%3A2020-12-31%2Ctype%3Aarticle
+Getting 3 pages of results with a total of 415 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4210188446%2Cfrom_publication_date%3A2018-01-01%2Cto_publication_date%3A2019-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 46 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306521176%2Cfrom_publication_date%3A1998-01-01%2Cto_publication_date%3A1999-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 136 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4406923043%2Cfrom_publication_date%3A2001-01-01%2Cto_publication_date%3A2002-12-31%2Ctype%3Aarticle
+Getting 35 pages of results with a total of 6895 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS193359815%2Cfrom_publication_date%3A2019-01-01%2Cto_publication_date%3A2020-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 171 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4363604084%2Cfrom_publication_date%3A1982-01-01%2Cto_publication_date%3A1983-12-31%2Ctype%3Aarticle
+Failed on row 368 source: https://openalex.org/S4363604084 — no applicable method for 'unnest' applied to an object of class "NULL"
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4363604084%2Cfrom_publication_date%3A2012-01-01%2Cto_publication_date%3A2013-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 7 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306463230%2Cfrom_publication_date%3A1999-01-01%2Cto_publication_date%3A2000-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 30 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4363604084%2Cfrom_publication_date%3A1973-01-01%2Cto_publication_date%3A1974-12-31%2Ctype%3Aarticle
+Failed on row 371 source: https://openalex.org/S4363604084 — no applicable method for 'unnest' applied to an object of class "NULL"
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS72851247%2Cfrom_publication_date%3A1946-01-01%2Cto_publication_date%3A1947-12-31%2Ctype%3Aarticle
+Getting 3 pages of results with a total of 458 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS44404461%2Cfrom_publication_date%3A1968-01-01%2Cto_publication_date%3A1969-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 52 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306524922%2Cfrom_publication_date%3A2010-01-01%2Cto_publication_date%3A2011-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 11 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS187169112%2Cfrom_publication_date%3A1971-01-01%2Cto_publication_date%3A1972-12-31%2Ctype%3Aarticle
+Getting 3 pages of results with a total of 428 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306524878%2Cfrom_publication_date%3A2007-01-01%2Cto_publication_date%3A2008-12-31%2Ctype%3Aarticle
+Getting 2 pages of results with a total of 228 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS187169112%2Cfrom_publication_date%3A1970-01-01%2Cto_publication_date%3A1971-12-31%2Ctype%3Aarticle
+Getting 3 pages of results with a total of 412 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS187169112%2Cfrom_publication_date%3A1969-01-01%2Cto_publication_date%3A1970-12-31%2Ctype%3Aarticle
+Getting 3 pages of results with a total of 402 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306524922%2Cfrom_publication_date%3A2006-01-01%2Cto_publication_date%3A2007-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 1 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306400393%2Cfrom_publication_date%3A2005-01-01%2Cto_publication_date%3A2006-12-31%2Ctype%3Aarticle
+Getting 22 pages of results with a total of 4388 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4210194355%2Cfrom_publication_date%3A2020-01-01%2Cto_publication_date%3A2021-12-31%2Ctype%3Aarticle
+Failed on row 381 source: https://openalex.org/S4210194355 — no applicable method for 'unnest' applied to an object of class "NULL"
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS130611943%2Cfrom_publication_date%3A2021-01-01%2Cto_publication_date%3A2022-12-31%2Ctype%3Aarticle
+Getting 2 pages of results with a total of 307 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS193359815%2Cfrom_publication_date%3A2021-01-01%2Cto_publication_date%3A2022-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 188 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4210221231%2Cfrom_publication_date%3A2021-01-01%2Cto_publication_date%3A2022-12-31%2Ctype%3Aarticle
+Failed on row 384 source: https://openalex.org/S4210221231 — no applicable method for 'unnest' applied to an object of class "NULL"
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306463708%2Cfrom_publication_date%3A2021-01-01%2Cto_publication_date%3A2022-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 54 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS2735557189%2Cfrom_publication_date%3A2021-01-01%2Cto_publication_date%3A2022-12-31%2Ctype%3Aarticle
+Getting 35 pages of results with a total of 6874 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4210171207%2Cfrom_publication_date%3A2021-01-01%2Cto_publication_date%3A2022-12-31%2Ctype%3Aarticle
+Failed on row 387 source: https://openalex.org/S4210171207 — no applicable method for 'unnest' applied to an object of class "NULL"
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306463045%2Cfrom_publication_date%3A2022-01-01%2Cto_publication_date%3A2023-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 1 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306463223%2Cfrom_publication_date%3A2023-01-01%2Cto_publication_date%3A2024-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 15 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306462838%2Cfrom_publication_date%3A2015-01-01%2Cto_publication_date%3A2016-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 3 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS157620343%2Cfrom_publication_date%3A2023-01-01%2Cto_publication_date%3A2024-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 78 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS122471516%2Cfrom_publication_date%3A2023-01-01%2Cto_publication_date%3A2024-12-31%2Ctype%3Aarticle
+Getting 2 pages of results with a total of 281 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS57027881%2Cfrom_publication_date%3A2023-01-01%2Cto_publication_date%3A2024-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 114 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS2764729569%2Cfrom_publication_date%3A1999-01-01%2Cto_publication_date%3A2000-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 93 records...
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306501211%2Cfrom_publication_date%3A2002-01-01%2Cto_publication_date%3A2003-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 4 records...
+Failed on row 395 source: https://openalex.org/S4306501211 — In argument: `counts_by_year_year == year`.
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS2764729569%2Cfrom_publication_date%3A1996-01-01%2Cto_publication_date%3A1997-12-31%2Ctype%3Aarticle
+Getting 1 page of results with a total of 63 records...
+Failed on row 396 source: https://openalex.org/S2764729569 — In argument: `counts_by_year_year == year`.
+Requesting url: https://api.openalex.org/works?filter=locations.source.id%3Ahttps%3A%2F%2Fopenalex.org%2FS4306463937%2Cfrom_publication_date%3A1991-01-01%2Cto_publication_date%3A1992-12-31%2Ctype%3Aarticle
+Failed on row 397 source: https://openalex.org/S4306463937 — no applicable method for 'unnest' applied to an object of class "NULL"
+There were 24 warnings (use warnings() to see them)

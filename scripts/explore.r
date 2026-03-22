@@ -10,9 +10,9 @@ library(showtext)
 library(future) # For parallel calls
 library(furrr)  # for parallel calls
 font_add(family = "Fira Sans",
-         regular = "/Users/timothyelder/Library/Fonts/FiraSans-Regular.otf",
-         bold = "/Users/timothyelder/Library/Fonts/FiraSans-Bold.otf",
-         italic = "/Users/timothyelder/Library/Fonts/FiraSans-Italic.otf")
+         regular = "/dartfs-hpc/rc/home/n/f007dcn/Fonts/FiraSans-Regular.otf",
+         bold = "/dartfs-hpc/rc/home/n/f007dcn/Fonts/FiraSans-Bold.otf",
+         italic = "/dartfs-hpc/rc/home/n/f007dcn/Fonts/FiraSans-Italic.otf")
 
 showtext_auto()
 showtext_opts(dpi = 300)
@@ -341,3 +341,55 @@ authors <- results %>%
   select(article_id, authorships) %>%
   unnest(authorships) %>%
   filter(author_position == "first")
+
+###############################################################################
+# Examining Sampled Imoact Facotrs -------------------------------------------- 
+###############################################################################
+
+sample_journals <- read_csv("data/sampled_impact_factors.csv")
+
+author_works_results <- readRDS("/dartfs-hpc/rc/home/n/f007dcn/productivity-scores/data/author_works_results.rds")
+
+sample_authors <- readRDS("data/sampled_authors.rds")
+
+calc_productivity()
+
+df <- author_works_results %>%
+  rename(article_id = id, article_display_name = display_name) %>%
+  unnest(authorships) %>%
+  filter(id %in% sample_authors$id, publication_year %in% sample_journals$publication_year) %>%
+  left_join(sample_journals)
+  
+
+
+
+author_ids <- unique(sample_authors$id)
+productivity_score <- numeric(length(author_ids))
+
+for(i in seq_along(author_ids)){
+  temp_df <- filter(df, id == author_ids[i])
+  
+  productivity_score[i] <- calc_productivity(temp_df$cited_by_count, temp_df$impact)
+
+}
+
+sample_authors$ps <- productivity_score
+
+# drop outliers
+df <- df %>% filter(abs(ps - mean(ps, na.rm = TRUE)) <= 2 * sd(ps, na.rm = TRUE))
+
+hist(sample_authors$ps)
+hist(sample_authors$h_index)
+hist(sample_authors$`2yr_mean_citedness`)
+hist(sample_authors$cited_by_count)
+
+plot(sample_authors$h_index, sample_authors$ps)
+plot(sample_authors$`2yr_mean_citedness`, sample_authors$ps)
+plot(sample_authors$cited_by_count, sample_authors$ps)
+
+
+cor.test(sample_authors$h_index, sample_authors$ps)
+
+cor.test(sample_authors$`2yr_mean_citedness`, sample_authors$ps)
+
+cor.test(sample_authors$cited_by_count, sample_authors$ps)

@@ -67,7 +67,8 @@ calc_if <- function(citations, articles_n) {
 #' @return A single numeric value
 #'
 calc_productivity <- function(citation_vec, journal_if_vec) {
-  return(sum(citation_vec *  journal_if_vec) / length(citation_vec))
+  valid <- !is.na(journal_if_vec)
+  return(sum(citation_vec[valid] * journal_if_vec[valid]) / sum(valid))
 }
 
 
