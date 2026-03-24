@@ -25,11 +25,9 @@ get_impact_factor <- function(conn, journal_id, year) {
 set_impact_factor <- function(conn, journal_id, year, impact_factor) {
   dbExecute(conn,
     "INSERT OR REPLACE INTO impact_factors (journal_id, year, impact_factor) VALUES (?, ?, ?)",
-    params = list(journal_id, journal_id, year, impact_factor)
+    params = list(journal_id, year, impact_factor)
   )
 }
-
-
 
 ###############################################################################
 # How to use in pipeline 
