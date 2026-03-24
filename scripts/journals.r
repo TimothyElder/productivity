@@ -24,7 +24,7 @@ library(tidyr)
 library(dplyr)
 library(stringr)
 
-source('/dartfs-hpc/rc/home/n/f007dcn/productivity-scores/scripts/functions.r')
+source('scripts/functions.r')
 
 options(openalexR.apikey = "SlDFTCWvxFsq5SVUGSNFm7")
 

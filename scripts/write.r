@@ -5,28 +5,6 @@ library(stringr)
 library(readr)
 library(igraph)
 library(ggplot2)
-library(ggtext)
-
-library(showtext)
-font_add(family = "Fira Sans",
-         regular = "/Users/timothyelder/Library/Fonts/FiraSans-Regular.otf",
-         bold = "/Users/timothyelder/Library/Fonts/FiraSans-Bold.otf",
-         italic = "/Users/timothyelder/Library/Fonts/FiraSans-Italic.otf")
-
-showtext_auto()
-showtext_opts(dpi = 300)
-
-theme_set(
-  theme_minimal(base_family = "Fira Sans", base_size = 20) +
-    theme(
-      plot.title      = element_text(face = "bold"),
-      plot.subtitle   = element_text(color = "gray40"),
-      plot.caption    = element_markdown(color = "gray50"),
-      legend.position = "bottom"
-    )
-)
-
-pal <- c("#b6174b", "#5398be", "#ffc914", "#23395b", "#519872")
 
 source('scripts/functions.r')
 

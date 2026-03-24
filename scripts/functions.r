@@ -1,3 +1,14 @@
+where <- function(dir = c("remote", "local")) {
+  dir <- match.arg(dir)
+  if(dir == "remote") {
+    setwd("/dartfs-hpc/rc/home/n/f007dcn/productivity-scores")
+  }
+  else if(dir == "local") {
+    setwd("/Users/timothyelder/Documents/productivity")
+  }
+}
+
+
 #' My Palette
 #'
 #' Just a palette opf colors that I like
@@ -178,3 +189,31 @@ h_index <- function(cite_vec) {
   }
   return(h)
 }
+
+set_style <- function(){
+  require(showtext)
+  require(ggplot2)
+  require(ggtext)
+  
+  font_add(family = "Fira Sans",
+         regular = "/Users/timothyelder/Library/Fonts/FiraSans-Regular.otf",
+         bold = "/Users/timothyelder/Library/Fonts/FiraSans-Bold.otf",
+         italic = "/Users/timothyelder/Library/Fonts/FiraSans-Italic.otf")
+
+  showtext_auto()
+  showtext_opts(dpi = 300)
+
+  theme_set(
+    theme_minimal(base_family = "Fira Sans", base_size = 20) +
+      theme(
+        plot.title      = element_text(face = "bold"),
+        plot.subtitle   = element_text(color = "gray40"),
+        plot.caption    = element_markdown(color = "gray50"),
+        legend.position = "bottom"
+      )
+  )
+
+}
+
+
+
