@@ -1,6 +1,6 @@
 ---
-title: "Productivity and Publication: A New Measure of Scholarly Status"
-shorttitle: "Scholarly Productivity"
+title: "Scholarly Impact and Productivity Score"
+shorttitle: "A New Author Level Bibliographic Metric"
 date: "March 2026"               # omit field entirely to suppress date
 subject: "cs.LG, stat.ML"        # arXiv subject classification for PDF metadata
 by-author:
@@ -12,12 +12,12 @@ by-author:
     email: "timothy.b.elder@dartmouth.edu"
     footnote: "Code for reproducing these analyses is available on GitHub at \\href{https://github.com/TimothyElder}{github.com/TimothyElder}"  # rendered as \thanks{}
 keywords:
-  - clinical decision-making
-  - large language models
-  - medical ethics
+  - bibliometrics
+  - productivity
+  - status
 abstract: |
-  
-bibliography: references.bib
+  This paper proposes and examines a new author level metric for measuring the productivity and impact of authors in academic research. The Scholarly Impact and Productivity Score (SIP Score) aims to offer a means for assessing the amount of work a scholar produces weighted by the venue in which that work appears. Taking into account the amount of citations schoalrly articles receive and weighting these by the impact factors of the journals in which publications appear attempts to both the influence of a scholars work (citations) and the quality of placement (journal impact factor). The measure is tested on a sample of data derived from social scientific journals via Open Alex.
+bibliography: [/Users/timothyelder/Documents/bibs/all.bib]
 csl: [/Users/timothyelder/.pandoc/csl/asa.csl]
 output: 
   bookdown::pdf_document2:
@@ -58,9 +58,12 @@ library(stringr)
 library(readr)
 library(ggplot2)
 library(tidyr)
+library(patchwork)
+library(ggridges)
 library(dplyr)
 library(magrittr)
 library(ggtext)
+library(viridis)
 library(arrow)
 library(kableExtra)
 library(showtext)
@@ -86,8 +89,271 @@ set.seed(1234)
 
 pal <- c("#b6174b", "#5398be", "#ffc914", "#23395b", "#519872")
 
+source('/Users/timothyelder/Documents/productivity/scripts/functions.r')
+
+sample_journals <- read_csv("/Users/timothyelder/Documents/productivity/data/sampled_impact_factors.csv")
+
+author_works_results <- readRDS("/Users/timothyelder/Documents/productivity/data/author_works_results.rds")
+
+sample_authors <- readRDS("/Users/timothyelder/Documents/productivity/data/sampled_authors.rds")
+
+df <- author_works_results %>%
+  rename(article_id = id, article_display_name = display_name) %>%
+  unnest(authorships) %>%
+  filter(id %in% sample_authors$id, publication_year %in% sample_journals$publication_year) %>%
+  left_join(sample_journals)
+
+author_ids <- unique(sample_authors$id)
+productivity_score <- numeric(length(author_ids))
+
+for(i in seq_along(author_ids)){
+  temp_df <- filter(df, id == author_ids[i])
+  
+  productivity_score[i] <- calc_productivity(temp_df$cited_by_count, temp_df$impact, type = "multiplicative")
+
+}
+
+sample_authors$ps <- productivity_score
+
+sample_authors <- sample_authors %>%
+  mutate(outlier = case_when(abs(ps - mean(ps, na.rm = TRUE)) <= 2 * sd(ps, na.rm = TRUE) ~ 0, 
+                             TRUE ~ 1),
+         ps_normalized = normalize(ps),
+         ps_standardized = standardize(ps),
+         ps_logged = log(ps))
+
+sample_authors %>%
+  ggplot(aes(x = ps)) +
+  geom_histogram()
+
+sample_authors %>%
+  ggplot(aes(x = ps_standardized)) +
+  geom_histogram()
+
+sample_authors %>%
+  ggplot(aes(x = ps_normalized)) +
+  geom_histogram()
+
+sample_authors %>%
+  ggplot(aes(x = ps_logged)) +
+  geom_histogram()
+
+sample_authors %>%
+  ggplot(aes(x = h_index)) +
+  geom_histogram()
+
+sample_authors %>%
+  ggplot(aes(x = `2yr_mean_citedness`)) +
+  geom_histogram()
+
+sample_authors %>%
+  ggplot(aes(x = cited_by_count)) +
+  geom_histogram()
+
+###############################################################################
+# Associations ---------------------------------------------------------------- 
+###############################################################################
+
+sample_authors %>%
+  ggplot(aes(x = ps, y = h_index)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+
+sample_authors %>%
+  filter(outlier == 0) %>%
+  ggplot(aes(x = ps, y = h_index)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+
+sample_authors %>%
+  ggplot(aes(x = ps_logged, y = h_index)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+
+sample_authors %>%
+  filter(outlier == 0) %>%
+  ggplot(aes(x = ps_logged, y = h_index)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+
+sample_authors %>%
+  ggplot(aes(x = ps, y = `2yr_mean_citedness`)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+
+sample_authors %>%
+  filter(outlier == 0) %>%
+  ggplot(aes(x = ps, y = `2yr_mean_citedness`)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+
+sample_authors %>%
+  ggplot(aes(x = ps, y = cited_by_count)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+
+sample_authors %>%
+  filter(outlier == 0) %>%
+  ggplot(aes(x = ps, y = cited_by_count)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+
+
+cor.test(sample_authors$h_index, sample_authors$ps)
+
+cor.test(sample_authors$`2yr_mean_citedness`, sample_authors$ps)
+
+cor.test(sample_authors$cited_by_count, sample_authors$ps)
+
+
+impact_citation_count_cor <- cor.test(df$impact, df$cited_by_count, use = "complete")
+
+impact_citation_count_cor$p.value
+round(impact_citation_count_cor$estimate, 2)
+
 ```
 
+# Introduction
+
+Bibliographic analysis is rife with measures, so then why propose a new one? There is really quite little genuine reason to do so besides the possible advance of science. It is mainly an exercise in my enthusiasm for learning and for trying out new things than any real gap that I can observe in the ltierature. it seems that the h-index is a measure which is widely considered to be the definitive measure of the impact or influence of a scholars work. Well there are more than one ways of skinning a cat. So why not try something new. Give it a whirl so to speak.
+
+The h-index is a author level metric that primarily captures the number of works an author produces and the number of citations that their work recieves. Taking the vector of articles an author has published, and arranging the articles by the number of times they have been cited, one takes the article that has received less than or equal to its index position in the vector.
+
+$$
+h\text{-index} (f) = max\{ i \in \mathbb{N} : f(i) \geq i \} 
+$$
+
+This measure benefits from being trivially easy to compute and straightforward in its interpretation. The h-index, and most bibliographic measures, fail to account for the structural features of the broader field in which scholarly publication occurs. It is naturally a controversial topic, as quality is a contested and ever shifting attribute of scholarly work.
+
+The SIP score cannot be a pure objective measure, but it does add an extra layer into what is being measured. In particular it seeks to account for the quality of the venue in which the work appears. Now again, quality here is a contested topic and so we rely upon a widely used measure of the general influence/importance of scholarly journals.
+
+In essence the SIP Score seeks to account for where scholarly articles appear, making the impact factor of the journal in which a work appears as a weight on the number of citations that an article receives. Now there is naturally an *a priori* concern here about circularity as impact factor is in essence an indication of the amount of citations articles in the focal journal receive. But empirical testing bears out that in the long run, the impact factor of the journal an article appears in is not highly predictive of the total number of citations the article recieves ($r = `r round(impact_citation_count_cor$estimate, 2)`, p < .001$).^[A journal's impact factor has a well specified temporal horizon that likely limits its ability to predict citation count over the lifetime of an article as it is defined as:$$\text{Impact Factor}_{y} = \frac{C_{y}(y-1) + C_{y}(y-2)}{N_{y-1} + N_{y-2}}$$ That is, the impact factor for year $y$ equals the number of citations received in year $y$ to articles published in years $y-1$ and $y-2$, divided by the total number of articles published in those two years.]
+
+# SIP Score
+
+Formally the SIP score is defined as:
+
+\begin{equation}
+  (\#eq:multiplicative)
+  \text{SIP} = \frac{ \sum_{i=1}^{n} (C_i \times I_j) }{n}
+\end{equation}
+
+For every paper, $i$, the researcher has published we sum the products of the citations that paper has received by the impact factor, $I$, of the journal, $j$, that the article was published in and divide the sum of the products over the total number of articles, $n$, published by the researcher. The impact factor is the measurement for the year that the publication appeared in that journal. I am not sure about that last decision, as it is motivated by the belief that placing aritcles in journals with higher impact factor is a mark of higher status. So for journals with an impact factor $> 1$ this weights the citations higher, where if the impact factor is $<1$ it will down weight those impact factors. In essence this penalizes lots of citations in lower impact factor journals.^[One of the primary downsides of this measure is that it is computationally intensive to retrieve the relevant data as the impact factors are tied to articles year of publication, a metric that is not readily available.]
+
+I need to check whether confining the h-index to the same window (2015-2025) yields a higher correlation, because it could be that scholars who have historically had a lot of work are getting a lower produccitivity score. That actually wouldn't make sense because h-index is a lifetime measure and can't be confined to a specified temporal dimension.
+
+## Alternative Formulations
+
+The SIP form defined in Equation \@ref(eq:multiplicative) has a multiplicative component that are not trivial including zeroing out citation scores in journals that have a 0 impact factor, as well as having a highly cited article in a high impact factor journal can lead the score to skyrocket. Two alternative formulations of the SIP score are as follows:
+
+\begin{equation}
+  (\#eq:logged)
+  \text{SIP} = \sum_{i=1}^{n} C_i \times \ln(I_j + c)
+\end{equation}
+
+This formulation of the SIP score multiplies the number of citations by the log of the impact factor plus a constant. The appropriate value for $c$ is an important decision because simply setting it to 1 can still lead to the problem that the impact factor ends up being 0 as it would be $\ln(0 + 1) = 0$. This transformation gets away from the extremes on the high end of high citation count and high impact factor but still presents a bit of an arbitrary value for the constant.
+
+Another formulation of the SIP score is to switch to an weigthed sum form:
+
+\begin{equation}
+  \text{SIP} =\alpha \sum_{i=1}^{n} C_i + \beta\sum_{i=1}^{n} I_j
+\end{equation}
+
+In this version $\alpha$ and $\beta$ can be set through three different mechanisms but each is arbitrary in its own way. They are as follows:
+
+### Standardization
+
+### Inverse Variance
+
+### Theoretical Constants
+
+In this version $\alpha$ and $\beta$ are set to some theoretically informed values for weighting the impact factors and citations. 
+
+# Methods
+
+To test these different formulations and the overall performance of the SIP score, I took a sample of authors from the five top journals in different fields of the social sciences including: Psychological Bulletin, American Journal of Sociology, American Economic Review, American Ethnologist, and American Historical Review. Using the `openalexR` [@massimo_openalexr_2024] library to source material from OpenAlex [@priem_openalex_2022] I drew a random sample of 20 articles from each of these journals and took the first authors from each of these papers. For whatever reason there was some attrition but this yielded a total of `r nrow(sample_authors)` authors, `r nrow(author_works_results)` articles, and `r nrow(sample_journals)` journals in which those articles appear.
+
+# Appendix — Supplemental Figures {-}
+
+```{r, fig.cap="Impact Factors and Citation Counts"}
+
+df %>%
+  filter(cited_by_count < 2000) %>%
+  ggplot(aes(x = impact, y = cited_by_count)) +
+  geom_point(size = 0.5) +
+  geom_smooth(method = "lm") +
+  labs(x = "Impact Factor", y = "Total Citations", caption = "Impact factors are calculated for<br>
+  the year in which the article appears.")
+```
+
+
+```{r}
+ggplot(iris, aes(x = Sepal.Length, y = Species)) +
+  stat_density_ridges(quantile_lines = TRUE, quantiles = 2)
+
+
+library(forcats)
+library(viridis)
+
+heatmap_data <- sample_authors |>
+  select(display_name, ps, works_count, cited_by_count, h_index) |>
+  mutate(across(c(ps, works_count, cited_by_count, h_index), 
+                ~ (. - min(., na.rm = TRUE)) / 
+                  (max(., na.rm = TRUE) - min(., na.rm = TRUE)),
+                .names = "{.col}_scaled")) |>
+  pivot_longer(cols = ends_with("_scaled"),
+               names_to = "metric",
+               values_to = "value") |>
+  mutate(
+    metric = recode(metric,
+                    "ps_scaled"            = "SIP Score",
+                    "works_count_scaled"   = "Works Count",
+                    "cited_by_count_scaled" = "Cited By Count",
+                    "h_index_scaled"       = "H-Index"),
+    display_name = fct_reorder(display_name, 
+                               if_else(metric == "SIP Score", value, NA_real_),
+                               .fun = function(x) mean(x, na.rm = TRUE))
+  )
+
+ggplot(heatmap_data, aes(x = metric, y = display_name, fill = value)) +
+  geom_tile(color = "white", linewidth = 0.15) +
+  scale_fill_viridis(option = "magma", na.value = "grey80",
+                     name = "Scaled Value",
+                     labels = c("Low", "", "Mid", "", "High")) +
+  labs(
+    title = "Scholar Bibliometric Profile",
+    subtitle = "All metrics min-max scaled within column",
+    x = NULL,
+    y = NULL
+  ) +
+  theme_minimal(base_size = 8) +
+  theme(
+    axis.text.y  = element_text(size = 5),
+    axis.text.x  = element_text(size = 8, face = "bold"),
+    panel.grid   = element_blank(),
+    legend.position = "bottom",
+    legend.key.width = unit(2, "cm")
+  )
+
+# THis is alllll wrong
+author_works_results %>%
+ggplot(aes(x = ps, y = id)) +
+  geom_density_ridges(scale = 0.9,
+                      fill = "steelblue",
+                      alpha = 0.6,
+                      color = "white",
+                      linewidth = 0.3) +
+  labs(
+    title = "Distribution of SIP Scores",
+    x = "SIP Score",
+    y = NULL
+  ) +
+  theme_minimal(base_size = 8) +
+  theme(
+    axis.text.y  = element_text(size = 5),
+    panel.grid.major.y = element_blank()
+  )
+```
 
 # References {-}
 <div id="refs"></div>

@@ -6,13 +6,13 @@ library(readr)
 library(igraph)
 library(ggplot2)
 library(ggtext)
+
+
 library(showtext)
-library(future) # For parallel calls
-library(furrr)  # for parallel calls
 font_add(family = "Fira Sans",
-         regular = "/dartfs-hpc/rc/home/n/f007dcn/Fonts/FiraSans-Regular.otf",
-         bold = "/dartfs-hpc/rc/home/n/f007dcn/Fonts/FiraSans-Bold.otf",
-         italic = "/dartfs-hpc/rc/home/n/f007dcn/Fonts/FiraSans-Italic.otf")
+         regular = "/Users/timothyelder/Library/Fonts/FiraSans-Regular.otf",
+         bold = "/Users/timothyelder/Library/Fonts/FiraSans-Bold.otf",
+         italic = "/Users/timothyelder/Library/Fonts/FiraSans-Italic.otf")
 
 showtext_auto()
 showtext_opts(dpi = 300)
@@ -26,6 +26,8 @@ theme_set(
       legend.position = "bottom"
     )
 )
+
+pal <- c("#b6174b", "#5398be", "#ffc914", "#23395b", "#519872")
 
 source('scripts/functions.r')
 
@@ -352,16 +354,11 @@ author_works_results <- readRDS("/dartfs-hpc/rc/home/n/f007dcn/productivity-scor
 
 sample_authors <- readRDS("data/sampled_authors.rds")
 
-calc_productivity()
-
 df <- author_works_results %>%
   rename(article_id = id, article_display_name = display_name) %>%
   unnest(authorships) %>%
   filter(id %in% sample_authors$id, publication_year %in% sample_journals$publication_year) %>%
   left_join(sample_journals)
-  
-
-
 
 author_ids <- unique(sample_authors$id)
 productivity_score <- numeric(length(author_ids))

@@ -66,9 +66,47 @@ calc_if <- function(citations, articles_n) {
 #'
 #' @return A single numeric value
 #'
-calc_productivity <- function(citation_vec, journal_if_vec) {
-  valid <- !is.na(journal_if_vec)
-  return(sum(citation_vec[valid] * journal_if_vec[valid]) / sum(valid))
+calc_productivity <- function(citation_vec, journal_if_vec,
+                              type = c("multiplicative", "additive", "log"),
+                              alpha = 1, beta = 1, log_constant = 2,
+                              weight_method = c("theoretical", "standardized", "inverse_variance")) {
+
+    type <- match.arg(type)
+    weight_method <- match.arg(weight_method)
+
+    valid <- !is.na(journal_if_vec)
+
+    n_dropped <- sum(!valid)
+    if (n_dropped > 0) {
+      warning(sprintf('%i papers dropped due to NA impact factors', n_dropped))
+    }
+    
+    if(type == "multiplicative"){
+    
+      result <- sum(citation_vec[valid] * journal_if_vec[valid]) / sum(valid)
+    
+    } else if (type == "additive") {
+
+      cit <- citation_vec[valid]
+      ifs <- journal_if_vec[valid]
+
+      if (weight_method == "theoretical") {
+        result <- alpha * sum(cit) + beta * sum(ifs)
+
+      } else if (weight_method == "standardized") {
+        cit_scaled <- scale(cit)
+        ifs_scaled <- scale(ifs)
+        result <- alpha * sum(cit_scaled) + beta * sum(ifs_scaled)
+
+      } else if (weight_method == "inverse_variance") {
+        alpha_iv <- 1 / var(cit)
+        beta_iv  <- 1 / var(ifs)
+        result <- alpha_iv * sum(cit) + beta_iv * sum(ifs)
+      }
+  } else if (type == "log") {
+      result <- sum(citation_vec[valid] * log(journal_if_vec[valid] + 2))
+  }
+  return(result)
 }
 
 
@@ -108,4 +146,35 @@ fetch_and_calculate_if <- function(year, source_id) {
 
   return(impact_factor)
 
+}
+
+
+
+
+
+normalize <- function(x) {
+  result <- (x - min(x, na.rm = TRUE)) / (max(x, na.rm = TRUE) - min(x, na.rm = TRUE))
+  return(result)
+}
+
+# which is subtracting the mean and dividing by the SD
+
+standardize <- function(x) {
+  result <- (x - mean(x, na.rm = TRUE)) / sd(x, na.rm = TRUE)
+  return(result)
+}
+
+
+h_index <- function(cite_vec) {
+  cite_vec <- sort(cite_vec, decreasing = TRUE)
+  
+  h <- 0
+  for(i in seq_along(cite_vec)) {
+    if(cite_vec[i] >= i) {
+      h <- i
+    } else {
+      break
+    }
+  }
+  return(h)
 }
