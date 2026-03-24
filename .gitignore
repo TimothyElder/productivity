@@ -1,0 +1,48 @@
+# LaTeX
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.nav
+*.snm
+*.vrb
+*.xdv
+*.pdf-fake
+_minted*/
+
+# R
+.Rhistory
+.RData
+.Rproj.user/
+*.Rproj
+.httr-oauth
+
+# Apple
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+
+# Editor junk
+*~
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Misc
+Thumbs.db
+*.bak
+*.tmp
